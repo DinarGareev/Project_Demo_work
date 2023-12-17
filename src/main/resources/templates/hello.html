@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+Hello world!
+<div sec:authorize-expr="isAuthenticated()">
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Exit" />
+</form>
+</div>
+<div sec:authorize-expr="hasRole('ROLE_ADMIN')">
+      <a th:href="@{/admin}">Страница АДМИНА</a>
+</div>
+</body>
+</html>
